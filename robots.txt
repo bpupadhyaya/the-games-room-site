@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://equalinformation.com/the-games-room-site/sitemap.xml
