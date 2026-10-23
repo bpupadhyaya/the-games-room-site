@@ -65,7 +65,7 @@ function chrome(depth, { current = '' } = {}) {
     top: `<a class="tgr-skip" href="#tgr-main">Jump to the page</a>
 <header class="tgr-top">
 <a class="tgr-brand" href="${up || './'}"><img class="tgr-logo" src="${up}assets/img/icon-96.png" alt="" width="40" height="40"><span class="tgr-brand-name">The Games Room</span></a>
-<nav class="tgr-tabs" aria-label="Sections">${tab('', 'Home', 'home')}${tab('games/', 'Games', 'games')}${tab('support/', 'Support', 'support')}</nav>
+<nav class="tgr-tabs" aria-label="Sections">${tab('', 'Home', 'home')}${tab('games/', 'Games', 'games')}${tab('support/', 'Support', 'support')}<a class="tgr-parent" href="https://equalinformation.com/">equalinformation.com<span aria-hidden="true"> &#8599;</span></a></nav>
 </header>`,
     foot: `<footer class="tgr-foot">
 <section class="tgr-foot-grid">
@@ -73,7 +73,7 @@ function chrome(depth, { current = '' } = {}) {
 <nav class="tgr-foot-tables" aria-label="Games"><h4 class="tgr-foot-h">Games</h4><a href="${up}games/">All ${games.length} games</a>${games.slice(0, 4).map((g) => `<a href="${up}${g.id}/">${esc(g.name)}</a>`).join('')}<a href="${up}#tgr-faq">Questions</a></nav>
 <nav class="tgr-foot-help" aria-label="Help"><h4 class="tgr-foot-h">Help</h4><a href="${up}support/">Support</a><a href="${up}privacy/">Privacy</a><a href="mailto:info@equalinformation.com">info@equalinformation.com</a></nav>
 </section>
-<p class="tgr-fine">&copy; 2026 Equal Information. The apps are coming soon to the App Store and Google Play; those names belong to their respective owners.</p>
+<p class="tgr-fine">&copy; 2026 <a href="https://equalinformation.com/">Equal Information</a>. The apps are coming soon to the App Store and Google Play; those names belong to their respective owners.</p>
 </footer>`,
   };
 }
