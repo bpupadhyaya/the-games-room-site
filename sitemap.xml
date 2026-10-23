@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://equalinformation.com/the-games-room-site/</loc></url>
+<url><loc>https://equalinformation.com/the-games-room-site/games/</loc></url>
 <url><loc>https://equalinformation.com/the-games-room-site/four-in-a-row/</loc></url>
 <url><loc>https://equalinformation.com/the-games-room-site/hearts/</loc></url>
+<url><loc>https://equalinformation.com/the-games-room-site/hex/</loc></url>
+<url><loc>https://equalinformation.com/the-games-room-site/dots-and-boxes/</loc></url>
+<url><loc>https://equalinformation.com/the-games-room-site/yacht/</loc></url>
+<url><loc>https://equalinformation.com/the-games-room-site/liars-dice/</loc></url>
+<url><loc>https://equalinformation.com/the-games-room-site/filament/</loc></url>
 <url><loc>https://equalinformation.com/the-games-room-site/support/</loc></url>
 <url><loc>https://equalinformation.com/the-games-room-site/privacy/</loc></url>
 </urlset>

@@ -1,0 +1,488 @@
+{
+  "site": {
+    "name": "The Games Room",
+    "base": "https://equalinformation.com/the-games-room-site/",
+    "tagline": "A games collection, beautifully made",
+    "og": "assets/img/og-1200x630.jpg"
+  },
+  "categories": {
+    "strategy": "Strategy",
+    "cards": "Cards",
+    "dice": "Dice",
+    "puzzle": "Puzzle"
+  },
+  "games": [
+    {
+      "id": "four-in-a-row",
+      "order": 10,
+      "name": "Four in a Row",
+      "tagline": "Drop, stack, align four.",
+      "summary": "Drop discs into a brass and walnut board and line up four before the house does.",
+      "intro": "Seven columns, six rows, one brass board. Take the free preview for a spin against the house.",
+      "category": "strategy",
+      "tags": [
+        "Two players",
+        "Lessons",
+        "Daily opening"
+      ],
+      "accent": "#d6ae5c",
+      "accent2": "#c1272d",
+      "status": "playable-preview",
+      "cover": "assets/shots/cover-four-in-a-row.jpg",
+      "coverAlt": "The Four in a Row board in brass and walnut",
+      "preview": {
+        "partial": "games/previews/four-in-a-row.html",
+        "scripts": [
+          "assets/js/four.js?v=2",
+          "assets/js/four-ui.js?v=2"
+        ]
+      },
+      "features": [
+        "Easy and Medium opponents, and pass and play for two on one device",
+        "Hints and take-backs whenever you like",
+        "Tonight's Lamp: a fresh opening every day, the same for everyone",
+        "Short lessons from how discs fall to trapping the house with two threats at once"
+      ],
+      "how": [
+        "You are red, the house is ivory. Players alternate, one disc per turn.",
+        "A disc falls to the lowest empty slot of the column you choose.",
+        "Line up four of your colour, sideways, upright or on a diagonal, and you win.",
+        "No four and no room left? The game is drawn."
+      ],
+      "keys": [
+        [
+          "Touch or mouse",
+          "Tap or click any column."
+        ],
+        [
+          "Keyboard",
+          "Press 1 to 7, or Tab to a column, move with the arrow keys and press Enter."
+        ],
+        [
+          "Hint",
+          "Points at a good column."
+        ],
+        [
+          "Undo",
+          "Takes back your last disc and the house reply."
+        ]
+      ],
+      "tips": [
+        "Own the middle column early; it sits on the most lines.",
+        "Build two threats at once. A double threat cannot be blocked.",
+        "Mind the square above a threat: playing beneath it can hand over the win.",
+        "Medium looks several moves ahead, so set a trap rather than a straight line."
+      ],
+      "metaDescription": "Play Four in a Row free against the computer in your browser: Easy and Medium, hints, undo, keyboard and touch. The full game is coming soon to the App Store and Google Play.",
+      "shots": [
+        {
+          "file": "assets/shots/01-four-play.jpg",
+          "alt": "Four in a Row at the brass and walnut board"
+        },
+        {
+          "file": "assets/shots/02-four-win.jpg",
+          "alt": "A win glows across the winning four"
+        },
+        {
+          "file": "assets/shots/03-home.jpg",
+          "alt": "The room: Four in a Row on the shelf, Tonight's Lamp and the Cabinet"
+        },
+        {
+          "file": "assets/shots/08-unlock.jpg",
+          "alt": "One optional, one-time unlock"
+        }
+      ]
+    },
+    {
+      "id": "hearts",
+      "order": 20,
+      "name": "Hearts",
+      "tagline": "Dodge the hearts, mind the Queen.",
+      "summary": "Pass three, dodge the hearts, and think twice before you take the Queen of Spades. First to 100 loses.",
+      "intro": "Four seats, thirteen cards each, one match to 100. Sit South and try the free preview.",
+      "category": "cards",
+      "tags": [
+        "Four players",
+        "Lessons",
+        "Hints"
+      ],
+      "accent": "#3fae86",
+      "accent2": "#b3262c",
+      "status": "playable-preview",
+      "cover": "assets/shots/cover-hearts.jpg",
+      "coverAlt": "Hearts at the baize table on a tablet",
+      "preview": {
+        "partial": "games/previews/hearts.html",
+        "scripts": [
+          "assets/js/hearts.js?v=2",
+          "assets/js/hearts-ui.js?v=2"
+        ]
+      },
+      "features": [
+        "You and three computer opponents at Easy and Medium",
+        "Every legal card is shown; hints say why a play is good",
+        "Pass left, right, across or hold, then shoot the moon if you dare",
+        "Short lessons, one idea at a time"
+      ],
+      "how": [
+        "Everyone gets 13 cards. Before play, pass three to a neighbour: left, right, across, then hold with no pass.",
+        "The 2 of clubs starts the first trick. Follow suit when you can.",
+        "Highest card of the led suit wins the trick and leads next.",
+        "No hearts and no Queen of spades on the first trick, unless you hold nothing else.",
+        "Hearts may not lead until one has been played.",
+        "Each heart costs 1 point and the Queen of spades costs 13. Fewer is better.",
+        "Take every heart and the Queen to shoot the moon: you score 0 and the others take 26.",
+        "The match ends when someone reaches 100; the lowest score wins."
+      ],
+      "keys": [
+        [
+          "Touch or mouse",
+          "Tap a card to play it. Dimmed cards are not legal."
+        ],
+        [
+          "Keyboard",
+          "Tab into your hand, arrow keys to move, Enter or Space to play."
+        ],
+        [
+          "Passing",
+          "Pick three cards, then Pass cards. Hint suggests three."
+        ],
+        [
+          "Hint and Undo",
+          "Hint explains a good play. Undo takes back your last card."
+        ]
+      ],
+      "tips": [
+        "Pass the Queen of spades and the high spades unless you hold plenty of small ones to guard them.",
+        "Slip under the winning card whenever you can.",
+        "Shedding a big heart or the Queen on a trick you cannot win is the heart of the game."
+      ],
+      "metaDescription": "Play Hearts free against three computer opponents in your browser: pass three, shoot the moon, first to 100 loses. The full game is coming soon to the App Store and Google Play.",
+      "shots": [
+        {
+          "file": "assets/shots/05-hearts-play.jpg",
+          "alt": "Hearts: four players, one match to 100"
+        },
+        {
+          "file": "assets/shots/06-hearts-pass.jpg",
+          "alt": "Passing three cards before the hand"
+        },
+        {
+          "file": "assets/shots/07-hearts-lesson.jpg",
+          "alt": "A short Hearts lesson, one idea at a time"
+        },
+        {
+          "file": "assets/shots/ipad-hearts.jpg",
+          "alt": "Hearts on a tablet"
+        }
+      ]
+    },
+    {
+      "id": "hex",
+      "order": 30,
+      "name": "Hex",
+      "tagline": "Link your shores. No draws.",
+      "summary": "Join your two shores with a chain of sea-glass stones on a limestone tide table. Someone always wins.",
+      "intro": "A limestone slab, shallow hollows and teal and amber sea-glass stones under a hanging lamp. Link your two shores before your rival does.",
+      "category": "strategy",
+      "tags": [
+        "Two players",
+        "Lessons",
+        "3 levels",
+        "Daily"
+      ],
+      "accent": "#3fc0b0",
+      "accent2": "#eaa63c",
+      "status": "coming-soon",
+      "cover": "assets/shots/cover-hex.jpg",
+      "coverAlt": "The Hex board: a limestone slab with teal and amber stones",
+      "features": [
+        "Play the house at three levels, or hand the device to a friend",
+        "An 11 by 11 board, or a quicker 9 by 9",
+        "A swap rule you can switch on, so the first move stays fair",
+        "A hint with the reason behind it, and take-backs",
+        "Four short lessons: connecting, blocking ladders, bridges and the swap",
+        "A daily position: win it in a few stones"
+      ],
+      "how": [
+        "Teal links the west and east shores; amber links north and south.",
+        "Players take turns placing one stone on any empty hollow. Stones never move or leave.",
+        "The first side to complete an unbroken chain between its two shores wins.",
+        "A game never ends in a draw: when the board is full, exactly one side has a chain.",
+        "With the swap rule on, the second player may take over the first stone instead of replying."
+      ],
+      "tips": [
+        "The centre is worth more than the edge: start near it.",
+        "Two stones with two shared empty hollows between them are linked, even if the rival cuts one.",
+        "Blocking from a distance usually beats blocking up close."
+      ],
+      "shots": [
+        {
+          "file": "assets/shots/hex-play.jpg",
+          "alt": "Hex mid-game: teal and amber stones on the limestone board"
+        },
+        {
+          "file": "assets/shots/hex-lesson.jpg",
+          "alt": "A Hex lesson: Make the chain"
+        },
+        {
+          "file": "assets/shots/hex-landscape.jpg",
+          "alt": "Hex in landscape: a glowing teal chain joins west and east"
+        },
+        {
+          "file": "assets/shots/hex-tablet.jpg",
+          "alt": "Hex on a tablet"
+        }
+      ]
+    },
+    {
+      "id": "dots-and-boxes",
+      "order": 40,
+      "name": "Dots and Boxes",
+      "tagline": "Thread the pegs, seal the squares.",
+      "summary": "Stretch silk threads between enamel pegs on a linen cloth and close boxes with wax seals.",
+      "intro": "Vermilion and indigo silk threads, enamel pegs on linen, and a wax seal for every box you close.",
+      "category": "strategy",
+      "tags": [
+        "Two players",
+        "Lessons",
+        "3 levels",
+        "Daily"
+      ],
+      "accent": "#e0603f",
+      "accent2": "#5568c2",
+      "status": "coming-soon",
+      "cover": "assets/shots/cover-dots-and-boxes.jpg",
+      "coverAlt": "Dots and Boxes on a linen cloth with silk threads",
+      "features": [
+        "Play the house at three levels, or pass and play",
+        "Cloths in three sizes: 4 by 4, 5 by 5 and 6 by 6 boxes",
+        "A needle hint that shows a safe thread and tells you why",
+        "Four short lessons: boxes, safe moves, chains and the double-cross",
+        "A daily endgame puzzle"
+      ],
+      "how": [
+        "Players take turns stretching one thread between two neighbouring pegs.",
+        "Complete the fourth side of a box and a wax seal marks it as yours.",
+        "Closing a box earns another turn, so keep going while you can.",
+        "When every thread is placed, the player with more boxes wins."
+      ],
+      "tips": [
+        "Avoid giving the third side of a box: it hands your rival a seal.",
+        "Near the end the board splits into chains. Count them before you commit.",
+        "Sometimes it pays to decline the last two boxes of a chain to keep control."
+      ],
+      "shots": [
+        {
+          "file": "assets/shots/dots-play.jpg",
+          "alt": "Dots and Boxes mid-game on the linen cloth"
+        },
+        {
+          "file": "assets/shots/dots-setup.jpg",
+          "alt": "Choosing an opponent and cloth size"
+        },
+        {
+          "file": "assets/shots/dots-landscape.jpg",
+          "alt": "Dots and Boxes in landscape"
+        },
+        {
+          "file": "assets/shots/dots-tablet.jpg",
+          "alt": "A finished 5 by 5 cloth with every box sealed, on a tablet"
+        }
+      ]
+    },
+    {
+      "id": "yacht",
+      "order": 50,
+      "name": "Yacht",
+      "tagline": "Glass dice, ink score card.",
+      "summary": "Five tinted glass dice, three rolls a turn and an ink score card to fill. Chase a high score or beat the house.",
+      "intro": "Throw five glass dice, keep the ones you like and write the best line on an ink score card.",
+      "category": "dice",
+      "tags": [
+        "Solo",
+        "Two players",
+        "Lessons",
+        "Daily"
+      ],
+      "accent": "#7cc6da",
+      "accent2": "#d9b66a",
+      "status": "coming-soon",
+      "cover": "assets/shots/cover-yacht.jpg",
+      "coverAlt": "Yacht: glass dice beside an ink score card",
+      "features": [
+        "Solo score chase, a game against the computer, or two players",
+        "Twelve categories and an upper-section bonus, with a preview of each line before you write it",
+        "A coach hint that weighs the odds and explains its choice",
+        "Hold, re-roll and undo before you commit",
+        "Short lessons on holding, choosing a line, the bonus and risk",
+        "A daily game with the same dice for everyone"
+      ],
+      "how": [
+        "Throw all five dice. You may keep any and re-roll the rest, twice.",
+        "After your last roll, write the result on one empty line of the card.",
+        "Upper lines (Aces to Sixes) add up matching dice; reach 63 there for a 35 point bonus.",
+        "Lower lines pay for Choice, Four of a Kind, Full House, straights and Yacht, five of a kind.",
+        "When all twelve lines are filled, the card is complete and the total is your score."
+      ],
+      "tips": [
+        "Early on, chase the upper lines that make the 63 bonus reachable.",
+        "A line you cannot fill is not wasted if you spend it on a poor roll.",
+        "Keep pairs for a Full House or Four of a Kind; keep runs for straights."
+      ],
+      "shots": [
+        {
+          "file": "assets/shots/yacht-play.jpg",
+          "alt": "Yacht: glass dice thrown, two throws left"
+        },
+        {
+          "file": "assets/shots/yacht-hint.jpg",
+          "alt": "Yacht hint: write 30 in Big Straight, with the reason"
+        },
+        {
+          "file": "assets/shots/yacht-landscape.jpg",
+          "alt": "Yacht in landscape: a completed card"
+        },
+        {
+          "file": "assets/shots/yacht-lesson.jpg",
+          "alt": "Yacht lesson one: keep what matches"
+        }
+      ]
+    },
+    {
+      "id": "liars-dice",
+      "order": 60,
+      "name": "Liar's Dice",
+      "tagline": "Bid, bluff and call by candlelight.",
+      "summary": "Hidden dice under glazed ceramic cups, three rivals with their own habits, and a candle in the middle of the table.",
+      "intro": "Everyone shakes dice under a cup. Bid how many of a face are on the table, and call the bluff when you do not believe it.",
+      "category": "dice",
+      "tags": [
+        "Bluffing",
+        "Three rivals",
+        "Lessons",
+        "Daily"
+      ],
+      "accent": "#e0803f",
+      "accent2": "#5d8a7a",
+      "status": "coming-soon",
+      "cover": "assets/shots/cover-liars-dice.jpg",
+      "coverAlt": "Liar's Dice: three ceramic cups around a candle",
+      "features": [
+        "You against three rivals: Ash is careful, Ember bluffs and Cinder leaps at the count",
+        "Ones can be wild, or play with plain dice",
+        "A full game of five dice each, or a quick game of three",
+        "A hint that gives the odds and says why",
+        "Short lessons on odds, bidding, bluffing and wild ones",
+        "A daily round with the same dice for everyone"
+      ],
+      "how": [
+        "Each player shakes their dice under a cup and looks at their own.",
+        "In turn, raise the bid: more dice, or the same number of a higher face.",
+        "Instead of raising you may call. Every cup is lifted and the claim is counted.",
+        "If the table holds at least as many as claimed, the caller loses a die. If not, the bidder does.",
+        "Lose all your dice and you are out. The last cup standing wins."
+      ],
+      "tips": [
+        "Start from what is in your own cup: it is the only evidence you have.",
+        "Opening a little low gives nothing away.",
+        "Learn how each rival bids before you decide whom to doubt."
+      ],
+      "shots": [
+        {
+          "file": "assets/shots/liars-bid.jpg",
+          "alt": "Liar's Dice after a call: the cups are lifted and the dice counted"
+        },
+        {
+          "file": "assets/shots/liars-setup.jpg",
+          "alt": "Setting up a game of Liar's Dice by candlelight"
+        },
+        {
+          "file": "assets/shots/liars-hint.jpg",
+          "alt": "A Liar's Dice hint with the odds explained"
+        },
+        {
+          "file": "assets/shots/liars-tablet.jpg",
+          "alt": "Liar's Dice on a tablet, with the round ledger"
+        }
+      ]
+    },
+    {
+      "id": "filament",
+      "order": 70,
+      "name": "Filament",
+      "tagline": "One glowing loop, every number met.",
+      "summary": "A loop puzzle in glass and light. Draw one closed wire through the pegs so every clue number is satisfied.",
+      "intro": "Light a single closed loop through a grid of pegs. Each number says how many sides of its cell the wire uses.",
+      "category": "puzzle",
+      "tags": [
+        "Solo",
+        "Lessons",
+        "5x5 to 10x10",
+        "Daily"
+      ],
+      "accent": "#ff8c3d",
+      "accent2": "#5fd3c0",
+      "status": "coming-soon",
+      "cover": "assets/shots/cover-filament.jpg",
+      "coverAlt": "Filament: a glowing loop on a smoked-glass plate",
+      "features": [
+        "Fresh puzzles generated for every game, each with exactly one solution",
+        "Easy, Medium and Hard, from 5 by 5 up to 10 by 10",
+        "Hints that explain the deduction, not just the answer",
+        "A pen for marking strands that are not part of the loop",
+        "Four short lessons: reading numbers, zeros and threes, corners and pegs, one loop only",
+        "A daily puzzle with the same grid for everyone, and a lamp that lights when you finish"
+      ],
+      "how": [
+        "Draw one closed loop through the pegs, moving along the grid lines.",
+        "A number in a cell says how many of its four sides the loop uses.",
+        "Cells without a number are free. The loop never crosses or branches.",
+        "When the loop closes and every number is met, the lamp lights."
+      ],
+      "tips": [
+        "Start with the zeros and threes: they place strands straight away.",
+        "A corner peg has only two strands, so a loop that touches it takes both.",
+        "Close a loop too early and the numbers left outside cannot be met."
+      ],
+      "shots": [
+        {
+          "file": "assets/shots/filament-win.jpg",
+          "alt": "Filament solved: the loop is closed and the lamp is lit"
+        },
+        {
+          "file": "assets/shots/filament-hint.jpg",
+          "alt": "A Filament hint tracing the next deduction"
+        },
+        {
+          "file": "assets/shots/filament-lesson.jpg",
+          "alt": "Filament lesson one: reading the numbers"
+        },
+        {
+          "file": "assets/shots/filament-landscape.jpg",
+          "alt": "A Filament lesson in landscape"
+        },
+        {
+          "file": "assets/shots/filament-tablet.jpg",
+          "alt": "Filament on a tablet"
+        }
+      ]
+    }
+  ],
+  "room": {
+    "heroShots": [
+      {
+        "file": "assets/shots/hex-play.jpg",
+        "alt": "Hex mid-game on the limestone board, teal and amber stones"
+      },
+      {
+        "file": "assets/shots/yacht-play.jpg",
+        "alt": "Yacht: five glass dice thrown, two throws left"
+      }
+    ],
+    "roomShot": {
+      "file": "assets/shots/room-grid.jpg",
+      "alt": "The Games Room on a tablet: seven games on the shelf, Tonight's Lamp and the Cabinet"
+    }
+  }
+}
