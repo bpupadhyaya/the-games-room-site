@@ -67,13 +67,18 @@ function chrome(depth, { current = '' } = {}) {
 <a class="tgr-brand" href="${up || './'}"><img class="tgr-logo" src="${up}assets/img/icon-96.png" alt="" width="40" height="40"><span class="tgr-brand-name">The Games Room</span></a>
 <nav class="tgr-tabs" aria-label="Sections">${tab('', 'Home', 'home')}${tab('games/', 'Games', 'games')}${tab('support/', 'Support', 'support')}<a class="tgr-parent" href="https://equalinformation.com/">equalinformation.com<span aria-hidden="true"> &#8599;</span></a></nav>
 </header>`,
-    foot: `<footer class="tgr-foot">
+    foot: `<footer class="tgr-dock">
+<details class="tgr-dock-box">
+<summary><span class="tgr-dock-links"><a href="${up || './'}">Home</a><a href="${up}games/">Games</a><a href="${up}support/">Support</a><a href="${up}privacy/">Privacy</a></span><span class="tgr-dock-copy">&copy; 2026 <a href="https://equalinformation.com/">Equal Information</a></span><span class="tgr-dock-more" aria-hidden="true"></span></summary>
+<div class="tgr-dock-panel tgr-foot">
 <section class="tgr-foot-grid">
 <div class="tgr-foot-about"><p class="tgr-foot-name">The Games Room</p><p class="tgr-foot-blurb">A warm room full of games. Free to play, no ads, nothing collected, and it works without a connection.</p></div>
 <nav class="tgr-foot-tables" aria-label="Games"><h4 class="tgr-foot-h">Games</h4><a href="${up}games/">All ${games.length} games</a>${games.slice(0, 4).map((g) => `<a href="${up}${g.id}/">${esc(g.name)}</a>`).join('')}<a href="${up}#tgr-faq">Questions</a></nav>
-<nav class="tgr-foot-help" aria-label="Help"><h4 class="tgr-foot-h">Help</h4><a href="${up}support/">Support</a><a href="${up}privacy/">Privacy</a><a href="mailto:info@equalinformation.com">info@equalinformation.com</a></nav>
+<nav class="tgr-foot-help" aria-label="Help"><h4 class="tgr-foot-h">Help</h4><a href="${up}support/">Support</a><a href="${up}privacy/">Privacy</a><a href="mailto:info@equalinformation.com">info@equalinformation.com</a><a href="https://equalinformation.com/">equalinformation.com</a></nav>
 </section>
-<p class="tgr-fine">&copy; 2026 <a href="https://equalinformation.com/">Equal Information</a>. The apps are coming soon to the App Store and Google Play; those names belong to their respective owners.</p>
+<p class="tgr-fine">The apps are coming soon to the App Store and Google Play; those names belong to their respective owners.</p>
+</div>
+</details>
 </footer>`,
   };
 }
