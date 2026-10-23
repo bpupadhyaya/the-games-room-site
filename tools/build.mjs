@@ -69,7 +69,7 @@ function chrome(depth, { current = '' } = {}) {
 </header>`,
     foot: `<footer class="tgr-dock">
 <details class="tgr-dock-box">
-<summary><span class="tgr-dock-links"><a href="${up || './'}">Home</a><a href="${up}games/">Games</a><a href="${up}support/">Support</a><a href="${up}privacy/">Privacy</a></span><span class="tgr-dock-copy">&copy; 2026 <a href="https://equalinformation.com/">Equal Information</a></span><span class="tgr-dock-more" aria-hidden="true"></span></summary>
+<summary><span class="tgr-dock-links"><a href="${up || './'}">Home</a><a href="${up}games/">Games</a><a href="${up}support/">Support</a><a href="${up}privacy/">Privacy</a></span><span class="tgr-dock-copy">&copy; 2026 <a href="https://equalinformation.com/">EqualInformation, LLC</a></span><span class="tgr-dock-more" aria-hidden="true"></span></summary>
 <div class="tgr-dock-panel tgr-foot">
 <section class="tgr-foot-grid">
 <div class="tgr-foot-about"><p class="tgr-foot-name">The Games Room</p><p class="tgr-foot-blurb">A warm room full of games. Free to play, no ads, nothing collected, and it works without a connection.</p></div>
@@ -259,7 +259,7 @@ function gamePage(g, i) {
   const title = live ? `${g.name} | Play free in your browser | The Games Room` : `${g.name} | ${g.tagline.replace(/\.$/, '')} | The Games Room`;
   const cover = imageSize(g.cover);
   const ld = [
-    { '@context': 'https://schema.org', '@type': ['VideoGame', 'SoftwareApplication'], name: g.name, description: g.summary, url: abs(g.id + '/'), image: abs(g.cover), applicationCategory: 'GameApplication', genre: data.categories[g.category], operatingSystem: 'iOS, Android', inLanguage: 'en', publisher: { '@type': 'Organization', name: 'Equal Information' }, isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.base }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+    { '@context': 'https://schema.org', '@type': ['VideoGame', 'SoftwareApplication'], name: g.name, description: g.summary, url: abs(g.id + '/'), image: abs(g.cover), applicationCategory: 'GameApplication', genre: data.categories[g.category], operatingSystem: 'iOS, Android', inLanguage: 'en', publisher: { '@type': 'Organization', name: 'EqualInformation, LLC' }, isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.base }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: SITE.name, item: SITE.base }, { '@type': 'ListItem', position: 2, name: 'Games', item: abs('games/') }, { '@type': 'ListItem', position: 3, name: g.name, item: abs(g.id + '/') }] },
   ];
   const shotLabel = `${g.name} screenshots`;
