@@ -1,6 +1,6 @@
 # The Games Room - website
 
-Public site for The Games Room, a lamp-lit place for original games, starting with Four in a Row and Hearts.
+Public site for The Games Room, a lamp-lit games collection, starting with Four in a Row and Hearts.
 Free to play, fully offline, no ads, no data collected. Coming soon to the App Store and Google Play.
 
 Live: https://equalinformation.com/the-games-room-site/
