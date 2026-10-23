@@ -222,3 +222,5 @@ dialog h3{margin-bottom:10px}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
+.tgr-menu{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap}
+.tgr-foot-name{font:700 21px/1.2 var(--serif);color:var(--ivory);margin:0 0 12px}
