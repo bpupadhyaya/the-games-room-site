@@ -72,11 +72,48 @@ for (let g = 0; g < 300; g++) {
   if (s.moonBy >= 0) { moons++; assert.strictEqual(tot, 78); assert.strictEqual(s.handPoints[s.moonBy], 0); } else assert.strictEqual(tot, 26);
 }
 console.log('hearts 300 hands ok; moons', moons);
-// forced shoot the moon
-{ const s = H.newHand(3, rngSeed(5)); // hold hand: no pass
-  s.taken = [[], [], [], []]; for (let c = 0; c < 52; c++) if (H.points(c)) s.taken[2].push(c); s.taken[0] = [...Array(52).keys()].filter(c => !H.points(c));
-  s.trickNo = 12; s.phase = 'play'; // finish via direct call path
-  const pts = s.taken.map(t => t.reduce((a, c) => a + H.points(c), 0)); assert.strictEqual(pts[2], 26); }
+// forced shoot the moon: a scripted legal hand where seat 2 takes every heart and the Queen of spades
+{
+  const card = (su, r) => su * 13 + (r - 2); // 0 clubs, 1 diamonds, 2 spades, 3 hearts
+  function run(shooterMissesOne) {
+    const s = H.newHand(3, rngSeed(11), [10, 20, 30, 40]); // hand 3 = no passing
+    const clubs = []; for (let r = 2; r <= 14; r++) clubs.push(card(0, r));
+    const hearts = []; for (let r = 2; r <= 14; r++) hearts.push(card(3, r));
+    const seat0 = [...clubs.slice(0, 11), card(3, 2), H.QS];           // 2..Q of clubs, 2 of hearts, Queen of spades
+    const seat2 = [card(0, 14), ...hearts.slice(1)];                   // Ace of clubs, 3..A of hearts
+    const used = new Set([...seat0, ...seat2, card(0, 13)]);
+    const rest = []; for (let c = 0; c < 52; c++) if (!used.has(c)) rest.push(c);
+    const seat1 = [card(0, 13), ...rest.filter(c => H.suitOf(c) === 1).slice(0, 12)];
+    const seat3 = rest.filter(c => !seat1.includes(c));
+    s.hands = [seat0, seat1, seat2, seat3].map(H.sortHand);
+    assert.deepStrictEqual(s.hands.map(h => h.length), [13, 13, 13, 13]);
+    assert.strictEqual(new Set(s.hands.flat()).size, 52);
+    if (shooterMissesOne) { // seat 1 swaps a spade for the 3 of hearts so seat 2 cannot take everything
+      const h3 = card(3, 3), sp = s.hands[1].find(c => H.suitOf(c) === 1);
+      s.hands[2][s.hands[2].indexOf(h3)] = sp; s.hands[1][s.hands[1].indexOf(sp)] = h3;
+      s.hands = s.hands.map(H.sortHand);
+    }
+    s.phase = 'play'; s.leader = 0; s.turn = 0; s.trick = []; s.trickNo = 0;
+    let guard = 0;
+    while (s.phase === 'play' && guard++ < 60) {
+      const p = s.turn, leg = H.legalPlays(s, p);
+      let c = leg[0];
+      if (p === 0 && leg.includes(H.QS) && s.trick.length && H.suitOf(s.trick[0].card) === 3 && s.trickNo >= 3) c = H.QS; // dump the queen on a heart trick
+      if (p === 2 && s.trick.length === 0) c = leg[0];
+      H.playCard(s, p, c);
+    }
+    return s;
+  }
+  const m = run(false);
+  assert.strictEqual(m.phase, 'done');
+  assert.strictEqual(m.taken[2].reduce((a, c) => a + H.points(c), 0), 26, 'shooter holds all 26 points');
+  assert.strictEqual(m.moonBy, 2);
+  assert.deepStrictEqual(m.handPoints, [26, 26, 0, 26], 'others take 26 each, shooter 0');
+  assert.deepStrictEqual(m.scores, [36, 46, 30, 66]);
+  const n = run(true);
+  assert.strictEqual(n.moonBy, -1, 'one heart elsewhere means no moon');
+  assert.strictEqual(n.handPoints.reduce((a, x) => a + x, 0), 26);
+}
 // match end
 assert(H.matchOver([100, 20, 30, 40]) && !H.matchOver([99, 99, 99, 99]));
 assert.deepStrictEqual(H.matchWinners([100, 20, 20, 40]), [1, 2]);
