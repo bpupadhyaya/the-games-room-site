@@ -1,7 +1,7 @@
 # The Games Room - website
 
 Public site for The Games Room, a lamp-lit games collection for phones and tablets.
-Free to play, plays offline, and one unlock removes the ads. Available on Google Play; iPhone and iPad coming soon.
+Every table and lesson free, plays offline, and one optional Remove ads purchase turns the ads off. Available on Google Play; iPhone and iPad coming soon.
 
 Live: https://equalinformation.com/the-games-room-site/  (GitHub Pages from `main`, no build on the server)
 

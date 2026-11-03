@@ -74,7 +74,7 @@ function chrome(depth, { current = '' } = {}) {
 <summary><span class="tgr-dock-links"><a href="${up || './'}">Home</a><a href="${up}games/">Games</a><a href="${up}support/">Support</a><a href="${up}privacy/">Privacy</a></span><span class="tgr-dock-copy">&copy; 2026 <a href="https://equalinformation.com/">EqualInformation, LLC</a></span><span class="tgr-dock-more" aria-hidden="true"></span></summary>
 <div class="tgr-dock-panel tgr-foot">
 <section class="tgr-foot-grid">
-<div class="tgr-foot-about"><p class="tgr-foot-name">The Games Room</p><p class="tgr-foot-blurb">A warm room full of games. Free to play with a few gentle ads that one unlock removes, and the games work without a connection.</p></div>
+<div class="tgr-foot-about"><p class="tgr-foot-name">The Games Room</p><p class="tgr-foot-blurb">A warm room full of games. Free to play, with a few gentle ads that one optional Remove ads purchase turns off. The games work without a connection.</p></div>
 <nav class="tgr-foot-tables" aria-label="Games"><h4 class="tgr-foot-h">Games</h4><a href="${up}games/">All ${games.length} games</a>${games.slice(0, 4).map((g) => `<a href="${up}${g.id}/">${esc(g.name)}</a>`).join('')}<a href="${up}#tgr-faq">Questions</a></nav>
 <nav class="tgr-foot-help" aria-label="Help"><h4 class="tgr-foot-h">Help</h4><a href="${up}support/">Support</a><a href="${up}privacy/">Privacy</a><a href="mailto:info@equalinformation.com">info@equalinformation.com</a><a href="https://equalinformation.com/">equalinformation.com</a></nav>
 </section>
@@ -148,22 +148,22 @@ function card(g, depth) {
 function home() {
   const shown = games.slice(0, HOME_LIMIT);
   const names = games.slice(0, 4).map((g) => g.name);
-  const desc = `${games.length} games in one warm, lamp-lit room: ${names.join(', ')} and more. Free to play, plays offline, and one unlock removes the ads. Try the web previews now. Available on Google Play.`;
+  const desc = `${games.length} games in one warm, lamp-lit room: ${names.join(', ')} and more. Every table and lesson free, plays offline, and one optional Remove ads purchase turns the ads off. Try the web previews now. Available on Google Play.`;
   const playable = games.filter((g) => g.status === 'playable-preview');
   const hero = data.room.heroShots;
   const heroImg = (s, cls, lazy) => { const { w, h } = imageSize(s.file); return `<div class="tgr-phone tgr-${cls}"><img src="${s.file}" alt="${esc(s.alt)}" width="${w}" height="${h}"${lazy ? ' loading="lazy"' : ''} decoding="async"></div>`; };
   const faq = [
-    ['Is The Games Room free?', 'Yes. Every game is free to play at its Easy and Medium levels, with hints and the first lesson. One optional, one-time unlock adds the Hard levels, every lesson, the Cabinet and extras. There is no subscription.'],
+    ['Is The Games Room free?', 'Yes. Every table, every level, every lesson and the Cabinet are free to play. The app shows ads, and one optional, one-time purchase, Remove ads, turns them off. There is no subscription.'],
     ['Does it need an internet connection?', 'No. The games work completely offline, on a plane or in a cabin. Ads appear only when a connection is available.'],
-    ['Are there ads? Do you collect my data?', 'The free version shows a few ads from Google AdMob: a banner in the room and an occasional ad when you leave a table, never during a game. The one-time unlock removes every ad, and you can also watch one short video for an ad-free hour. There is no account. Your results, streaks and settings stay on your device; AdMob may use your device\'s advertising identifier, depending on the consent choice you make (see the privacy page).'],
+    ['Are there ads? Do you collect my data?', 'The app shows a few ads from Google AdMob: a banner in the room and an occasional ad when you leave a table, never during a game. The optional one-time Remove ads purchase turns every ad off (Restore purchase brings it back on a new device), and you can also watch one short video for an ad-free hour. There is no account. Your results, streaks and settings stay on your device; AdMob may use your device\'s advertising identifier, depending on the consent choice you make (see the privacy page).'],
     ['When can I get it?', 'The Games Room is available now on Google Play for Android phones and tablets. An iPhone and iPad version is coming soon.'],
     ['Which devices?', 'Android phones and tablets today, in portrait and landscape. iPhone and iPad are coming soon.'],
-    ['Is the web preview the full game?', 'No. A preview on this site is a small demo of a game against the computer, at Easy and Medium. The app adds the Hard levels, guided lessons, daily games, the Cabinet, sound and richer animation.'],
+    ['Is the web preview the full game?', 'No. A preview on this site is a small demo of a game against the computer, at Easy and Medium. The app adds the Hard levels, guided lessons, daily games, the Cabinet, sound and richer animation, all free.'],
     ['Can I play against friends?', 'Several games have pass and play for two people on one device; each game page says what it offers.'],
     ['How do I get help?', 'Write to support@equalinformation.com or open the support page. For privacy questions write to privacy@equalinformation.com.'],
   ];
   const ld = [
-    { '@context': 'https://schema.org', '@type': 'MobileApplication', name: SITE.name, applicationCategory: 'GameApplication', operatingSystem: 'iOS, Android', description: `${games.length} games at a lamp-lit table. Free to play, offline, one unlock removes the ads.`, image: abs('assets/img/icon-512.png'), offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+    { '@context': 'https://schema.org', '@type': 'MobileApplication', name: SITE.name, applicationCategory: 'GameApplication', operatingSystem: 'iOS, Android', description: `${games.length} games at a lamp-lit table. Free to play, offline, optional Remove ads purchase.`, image: abs('assets/img/icon-512.png'), offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
   ];
   const picks = games.slice(0, 12).map((g) => ({ file: g.shots[0].file, alt: g.shots[0].alt }));
@@ -175,7 +175,7 @@ function home() {
 <p class="tgr-lede">Pull up a chair at a lamp-lit table. ${games.length} games, with nothing to sign up for and nothing to wait for.</p>
 <div class="tgr-badges">${playable.slice(0, 2).map((g, i) => `<a class="tgr-btn${i ? ' tgr-ghost' : ''}" href="${g.id}/#tgr-play">Play ${esc(g.name)}</a>`).join('')}<a class="tgr-btn tgr-ghost" href="games/">All games</a></div>
 ${badges()}
-<p class="tgr-hero-meta">Free to play &middot; One optional unlock removes ads &middot; Games work offline &middot; No account</p>
+<p class="tgr-hero-meta">Free to play &middot; One optional Remove ads purchase &middot; Games work offline &middot; No account</p>
 </div>
 <div class="tgr-hero-art"><div class="tgr-glow"></div>${heroImg(hero[0], 'a', false)}${heroImg(hero[1], 'b', true)}</div>
 </div></section>
@@ -186,7 +186,7 @@ ${badges()}
 <div class="tgr-grid tgr-g3">
 <div class="tgr-card"><div class="tgr-ico" aria-hidden="true">&#9670;</div><h3>Made to look and feel real</h3><p>Every game has its own materials, lit by its own light. Smooth animation with a Reduce Motion setting, and soft sounds you can switch off.</p></div>
 <div class="tgr-card"><div class="tgr-ico" aria-hidden="true">&#9670;</div><h3>Easy on every screen</h3><p>Portrait and landscape on phones and tablets. Adjustable text size and screen reader descriptions for the board, the dice and every button.</p></div>
-<div class="tgr-card"><div class="tgr-ico" aria-hidden="true">&#9670;</div><h3>Private by design</h3><p>The games work offline and there is no account. Your results and streaks stay on your device. The free version shows a few ads (Google AdMob), with a consent choice where the law asks for one.</p></div>
+<div class="tgr-card"><div class="tgr-ico" aria-hidden="true">&#9670;</div><h3>Private by design</h3><p>The games work offline and there is no account. Your results and streaks stay on your device. The app shows a few ads (Google AdMob), with a consent choice where the law asks for one.</p></div>
 </div>
 ${data.room.roomShot ? `<div class="tgr-roomshot">${fig(0, data.room.roomShot, { caption: false })}</div>` : ''}
 </div></section>
@@ -200,17 +200,17 @@ ${data.room.roomShot ? `<div class="tgr-roomshot">${fig(0, data.room.roomShot, {
 <section class="tgr-band" id="tgr-learn"><div class="tgr-shell">
 <div class="tgr-grid tgr-g2">
 <div><p class="tgr-eyebrow">Learn as you play</p><h2 style="margin:10px 0 14px">Short lessons, one idea at a time</h2>
-<p>From how discs fall to bidding by candlelight, and from a first chain of stones to reading a loop puzzle. The first lesson in every game is free.</p>
+<p>From how discs fall to bidding by candlelight, and from a first chain of stones to reading a loop puzzle. Every lesson is free.</p>
 <ul class="tgr-check"><li>Hints that tell you why, not just where</li><li>Take back a move whenever you like</li><li>Most games offer pass and play for two</li></ul></div>
 <div class="tgr-card" id="tgr-lamp"><div class="tgr-ico" aria-hidden="true">&#9728;</div><h3>Tonight's Lamp</h3><p>A fresh daily opening, position or puzzle, the same for everyone. Try it once and see how you do.</p>
 <h3 style="margin-top:18px">The Cabinet</h3><p>Your results and streaks, kept on your device and nowhere else.</p></div>
 </div></div></section>
 
 <section class="tgr-band tgr-baize" id="tgr-free"><div class="tgr-shell">
-<div class="tgr-sec-head"><p class="tgr-eyebrow">Free, plus one simple unlock</p><h2>Everything to enjoy every game is free</h2></div>
+<div class="tgr-sec-head"><p class="tgr-eyebrow">All free, with optional Remove ads</p><h2>Everything to enjoy every game is free</h2></div>
 <div class="tgr-unlock">
-<div class="tgr-card tgr-free"><h3>Free</h3><ul class="tgr-check"><li>Easy and Medium levels</li><li>Solo and pass and play, where a game allows</li><li>Hints and take-backs</li><li>The first lesson in every game</li></ul></div>
-<div class="tgr-card"><h3>One optional unlock</h3><ul class="tgr-check"><li>Hard levels</li><li>Every lesson</li><li>The Cabinet: results and streaks</li><li>Extras</li></ul><p class="tgr-muted" style="margin-top:12px">A single one-time purchase. No subscription, no timers, and it removes every ad.</p></div>
+<div class="tgr-card tgr-free"><h3>Free to play</h3><ul class="tgr-check"><li>Every table and every level, Easy to Hard</li><li>Every lesson, hints and take-backs</li><li>The Cabinet: results and streaks</li><li>Solo and pass and play, where a game allows</li></ul></div>
+<div class="tgr-card"><h3>Optional: Remove ads</h3><ul class="tgr-check"><li>One-time purchase, no subscription</li><li>Turns off every ad</li><li>Restore purchase on a new device</li><li>Or watch one short video for an ad-free hour</li></ul></div>
 </div></div></section>
 
 <section class="tgr-band" id="tgr-gallery"><div class="tgr-shell">
@@ -247,7 +247,7 @@ ${tags.length ? `<div class="tgr-chips" role="group" aria-label="Tags">${tags.ma
 <p class="tgr-empty" id="tgr-empty" hidden>No game matches. Try fewer filters.</p>
 </article>`;
   const ld = [{ '@context': 'https://schema.org', '@type': 'ItemList', name: 'Games in The Games Room', itemListElement: games.map((g, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(g.id + '/'), name: g.name })) }];
-  return page({ depth: 1, path: 'games/', title: `All ${games.length} games | The Games Room`, description: `Every game in The Games Room: ${games.slice(0, 5).map((g) => g.name).join(', ')} and more. Free to play, offline, one unlock removes the ads. Available on Google Play.`, body, current: 'games', ld, scripts: ['assets/js/games-filter.js?v=1'] });
+  return page({ depth: 1, path: 'games/', title: `All ${games.length} games | The Games Room`, description: `Every game in The Games Room: ${games.slice(0, 5).map((g) => g.name).join(', ')} and more. Free to play, offline, one optional Remove ads purchase turns the ads off. Available on Google Play.`, body, current: 'games', ld, scripts: ['assets/js/games-filter.js?v=1'] });
 }
 
 /* ---------- one game ---------- */
@@ -286,7 +286,7 @@ ${g.keys ? `<h2 class="tgr-tp-h tgr-sub">At the table</h2><dl class="tgr-defs">$
 </aside>
 ${g.tips && g.tips.length ? `<aside class="tgr-tp-ideas"><h2 class="tgr-tp-h">Habits of good players</h2><ul class="tgr-check">${g.tips.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></aside>` : ''}
 ${live ? `<section class="tgr-tp-shots" aria-label="${esc(shotLabel)}"><h2 class="tgr-tp-h">Screens from the app</h2>${gallery(1, g.shots, shotLabel, 1)}</section>` : ''}
-<aside class="tgr-tp-cta tgr-callout"><div class="tgr-t"><h3>Get the full game on Google Play</h3><p>${esc(g.name)} is part of The Games Room app for phones and tablets: free to play, games work offline, one unlock removes the ads.</p></div>${STORE_BADGES}</aside>
+<aside class="tgr-tp-cta tgr-callout"><div class="tgr-t"><h3>Get the full game on Google Play</h3><p>${esc(g.name)} is part of The Games Room app for phones and tablets: free to play, games work offline, one optional Remove ads purchase turns the ads off.</p></div>${STORE_BADGES}</aside>
 <nav class="tgr-tp-next" aria-label="More games"><a class="tgr-pn tgr-pn-prev" href="../${prev.id}/" rel="prev"><small>Previous</small>${esc(prev.name)}</a><a class="tgr-pn tgr-pn-all" href="../games/">All games</a><a class="tgr-pn tgr-pn-next" href="../${next.id}/" rel="next"><small>Next</small>${esc(next.name)}</a></nav>
 </article>`;
   return page({ depth: 1, path: g.id + '/', title, description, body, current: 'game', ld, bodyClass: 'tgr-game', scripts: live ? g.preview.scripts.map((s) => s) : [] });

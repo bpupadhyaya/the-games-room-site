@@ -38,7 +38,7 @@
         ]
       },
       "features": [
-        "Easy and Medium opponents, and pass and play for two on one device",
+        "Easy, Medium and Hard opponents, and pass and play for two on one device",
         "Hints and take-backs whenever you like",
         "Tonight's Lamp: a fresh opening every day, the same for everyone",
         "Short lessons from how discs fall to trapping the house with two threats at once"
@@ -86,10 +86,6 @@
         {
           "file": "assets/shots/03-home.jpg",
           "alt": "The room: Four in a Row on the shelf, Tonight's Lamp and the Cabinet"
-        },
-        {
-          "file": "assets/shots/08-unlock.jpg",
-          "alt": "One optional, one-time unlock"
         }
       ]
     },
@@ -119,7 +115,7 @@
         ]
       },
       "features": [
-        "You and three computer opponents at Easy and Medium",
+        "You and three computer opponents at Easy, Medium and Hard",
         "Every legal card is shown; hints say why a play is good",
         "Pass left, right, across or hold, then shoot the moon if you dare",
         "Short lessons, one idea at a time"
