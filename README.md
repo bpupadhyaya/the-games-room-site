@@ -1,7 +1,7 @@
 # The Games Room - website
 
 Public site for The Games Room, a lamp-lit games collection for phones and tablets.
-Free to play, plays offline, and one unlock removes the ads. Coming soon to the App Store and Google Play.
+Free to play, plays offline, and one unlock removes the ads. Available on Google Play; iPhone and iPad coming soon.
 
 Live: https://equalinformation.com/the-games-room-site/  (GitHub Pages from `main`, no build on the server)
 
@@ -31,7 +31,7 @@ Hand-written: `support/`, `privacy/`, `404.html`, `assets/`. The two playable pr
 New categories go in the `categories` object; tag chips on `/games/` appear automatically for any tag used by two games.
 Image width and height are read from the files, so pages never shift while loading.
 
-Rules for copy: say "games collection"; no store links until the apps are live (use the coming-soon badge);
+Rules for copy: say "games collection"; link only to stores where the app is live (Google Play is live; the App Store is not yet, keep its badge as coming soon);
 company mail aliases only.
 
 Contact: support@equalinformation.com

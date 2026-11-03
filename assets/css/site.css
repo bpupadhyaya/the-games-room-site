@@ -31,6 +31,7 @@ p{margin:0 0 1em}
 .tgr-btn[disabled]{cursor:not-allowed;filter:none;opacity:.45;transform:none}
 .tgr-btn.tgr-small{font-size:14px;min-height:40px;padding:9px 16px}
 .tgr-badge-soon{background:rgba(255,255,255,.03);border:1px dashed var(--k-rule);border-radius:12px;color:var(--k-text);cursor:default;display:inline-flex;flex-direction:column;gap:2px;line-height:1.15;padding:9px 20px 9px 18px}
+.tgr-badge-live{border-style:solid;border-color:var(--k-brass);cursor:pointer;text-decoration:none}
 .tgr-badge-soon small{color:var(--k-brass);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 .tgr-badge-soon b{color:var(--k-bone);font:700 17px/1.1 var(--k-face-serif)}
 .tgr-badges{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 0}

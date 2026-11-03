@@ -14,7 +14,10 @@ const SITE = data.site;
 const games = [...data.games].sort((a, b) => a.order - b.order || a.name.localeCompare(b.name));
 const STATIC_PAGES = ['support/', 'privacy/'];
 const HOME_LIMIT = 8;
-const STORES = ['App Store', 'Google Play'];
+const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.equalinformation.thegamesroom.app';
+const PLAY_BADGE = `<a class="tgr-badge-soon tgr-badge-live" href="${PLAY_URL}" rel="noopener"><small>Get it on</small><b>Google Play</b></a>`;
+const IOS_BADGE = '<span class="tgr-badge-soon"><small>iPhone and iPad</small><b>Coming soon</b></span>';
+const STORE_BADGES = PLAY_BADGE + IOS_BADGE;
 
 /* ---------- helpers ---------- */
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -54,8 +57,7 @@ function validate() {
 
 /* ---------- shared pieces ---------- */
 function badges(extra = '') {
-  return `<div class="tgr-badges" aria-label="Availability">${STORES.map((s, i) =>
-    `<span class="tgr-badge-soon"><small>Coming soon${i ? ' to' : ' to the'}</small><b>${s}</b></span>`).join('')}${extra}</div>`;
+  return `<div class="tgr-badges" aria-label="Availability">${STORE_BADGES}${extra}</div>`;
 }
 
 function chrome(depth, { current = '' } = {}) {
@@ -76,7 +78,7 @@ function chrome(depth, { current = '' } = {}) {
 <nav class="tgr-foot-tables" aria-label="Games"><h4 class="tgr-foot-h">Games</h4><a href="${up}games/">All ${games.length} games</a>${games.slice(0, 4).map((g) => `<a href="${up}${g.id}/">${esc(g.name)}</a>`).join('')}<a href="${up}#tgr-faq">Questions</a></nav>
 <nav class="tgr-foot-help" aria-label="Help"><h4 class="tgr-foot-h">Help</h4><a href="${up}support/">Support</a><a href="${up}privacy/">Privacy</a><a href="mailto:info@equalinformation.com">info@equalinformation.com</a><a href="https://equalinformation.com/">equalinformation.com</a></nav>
 </section>
-<p class="tgr-fine">The apps are coming soon to the App Store and Google Play; those names belong to their respective owners.</p>
+<p class="tgr-fine">The Games Room is available on Google Play; an iPhone and iPad version is coming soon. Google Play is a trademark of Google LLC.</p>
 </div>
 </details>
 </footer>`,
@@ -132,7 +134,7 @@ function gallery(depth, shots, label, lazyFrom = 0) {
 function card(g, depth) {
   const up = '../'.repeat(depth);
   const { w, h } = imageSize(g.cover);
-  const state = g.status === 'playable-preview' ? 'Play the preview' : 'Coming soon';
+  const state = g.status === 'playable-preview' ? 'Play the preview' : 'In the app';
   const text = [g.name, g.tagline, g.summary, data.categories[g.category], ...(g.tags || [])].join(' ').toLowerCase();
   return `<li class="tgr-gc${g.status === 'playable-preview' ? ' tgr-live' : ''}" style="--ga:${g.accent};--gb:${g.accent2}" data-cat="${g.category}" data-tags="${esc((g.tags || []).join('|'))}" data-text="${esc(text)}">
 <img src="${up}${g.cover}" alt="${esc(g.coverAlt)}" width="${w}" height="${h}" loading="lazy" decoding="async">
@@ -146,7 +148,7 @@ function card(g, depth) {
 function home() {
   const shown = games.slice(0, HOME_LIMIT);
   const names = games.slice(0, 4).map((g) => g.name);
-  const desc = `${games.length} games in one warm, lamp-lit room: ${names.join(', ')} and more. Free to play, plays offline, and one unlock removes the ads. Try the web previews now. Coming soon to the App Store and Google Play.`;
+  const desc = `${games.length} games in one warm, lamp-lit room: ${names.join(', ')} and more. Free to play, plays offline, and one unlock removes the ads. Try the web previews now. Available on Google Play.`;
   const playable = games.filter((g) => g.status === 'playable-preview');
   const hero = data.room.heroShots;
   const heroImg = (s, cls, lazy) => { const { w, h } = imageSize(s.file); return `<div class="tgr-phone tgr-${cls}"><img src="${s.file}" alt="${esc(s.alt)}" width="${w}" height="${h}"${lazy ? ' loading="lazy"' : ''} decoding="async"></div>`; };
@@ -154,8 +156,8 @@ function home() {
     ['Is The Games Room free?', 'Yes. Every game is free to play at its Easy and Medium levels, with hints and the first lesson. One optional, one-time unlock adds the Hard levels, every lesson, the Cabinet and extras. There is no subscription.'],
     ['Does it need an internet connection?', 'No. The games work completely offline, on a plane or in a cabin. Ads appear only when a connection is available.'],
     ['Are there ads? Do you collect my data?', 'The free version shows a few ads from Google AdMob: a banner in the room and an occasional ad when you leave a table, never during a game. The one-time unlock removes every ad, and you can also watch one short video for an ad-free hour. There is no account. Your results, streaks and settings stay on your device; AdMob may use your device\'s advertising identifier, depending on the consent choice you make (see the privacy page).'],
-    ['When can I get it?', 'The Games Room is coming soon to the App Store and Google Play. This site will link to the stores as soon as the app is available.'],
-    ['Which devices?', 'iPhone and iPad, and Android phones and tablets, in portrait and landscape.'],
+    ['When can I get it?', 'The Games Room is available now on Google Play for Android phones and tablets. An iPhone and iPad version is coming soon.'],
+    ['Which devices?', 'Android phones and tablets today, in portrait and landscape. iPhone and iPad are coming soon.'],
     ['Is the web preview the full game?', 'No. A preview on this site is a small demo of a game against the computer, at Easy and Medium. The app adds the Hard levels, guided lessons, daily games, the Cabinet, sound and richer animation.'],
     ['Can I play against friends?', 'Several games have pass and play for two people on one device; each game page says what it offers.'],
     ['How do I get help?', 'Write to support@equalinformation.com or open the support page. For privacy questions write to privacy@equalinformation.com.'],
@@ -245,7 +247,7 @@ ${tags.length ? `<div class="tgr-chips" role="group" aria-label="Tags">${tags.ma
 <p class="tgr-empty" id="tgr-empty" hidden>No game matches. Try fewer filters.</p>
 </article>`;
   const ld = [{ '@context': 'https://schema.org', '@type': 'ItemList', name: 'Games in The Games Room', itemListElement: games.map((g, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(g.id + '/'), name: g.name })) }];
-  return page({ depth: 1, path: 'games/', title: `All ${games.length} games | The Games Room`, description: `Every game in The Games Room: ${games.slice(0, 5).map((g) => g.name).join(', ')} and more. Free to play, offline, one unlock removes the ads. Coming soon to the App Store and Google Play.`, body, current: 'games', ld, scripts: ['assets/js/games-filter.js?v=1'] });
+  return page({ depth: 1, path: 'games/', title: `All ${games.length} games | The Games Room`, description: `Every game in The Games Room: ${games.slice(0, 5).map((g) => g.name).join(', ')} and more. Free to play, offline, one unlock removes the ads. Available on Google Play.`, body, current: 'games', ld, scripts: ['assets/js/games-filter.js?v=1'] });
 }
 
 /* ---------- one game ---------- */
@@ -254,7 +256,7 @@ function gamePage(g, i) {
   const next = games[(i + 1) % games.length];
   const preview = g.preview ? readFileSync(join(ROOT, g.preview.partial), 'utf8').trim() : '';
   const live = g.status === 'playable-preview';
-  const statusLine = live ? 'The full game is coming soon to the App Store and Google Play.' : 'Coming soon to the App Store and Google Play.';
+  const statusLine = live ? 'The full game is available on Google Play.' : 'Available on Google Play.';
   const description = g.metaDescription || `${g.intro} ${statusLine}`;
   const title = live ? `${g.name} | Play free in your browser | The Games Room` : `${g.name} | ${g.tagline.replace(/\.$/, '')} | The Games Room`;
   const cover = imageSize(g.cover);
@@ -284,7 +286,7 @@ ${g.keys ? `<h2 class="tgr-tp-h tgr-sub">At the table</h2><dl class="tgr-defs">$
 </aside>
 ${g.tips && g.tips.length ? `<aside class="tgr-tp-ideas"><h2 class="tgr-tp-h">Habits of good players</h2><ul class="tgr-check">${g.tips.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></aside>` : ''}
 ${live ? `<section class="tgr-tp-shots" aria-label="${esc(shotLabel)}"><h2 class="tgr-tp-h">Screens from the app</h2>${gallery(1, g.shots, shotLabel, 1)}</section>` : ''}
-<aside class="tgr-tp-cta tgr-callout"><div class="tgr-t"><h3>Get the full game: coming soon</h3><p>${esc(g.name)} is part of The Games Room app for phones and tablets: free to play, games work offline, one unlock removes the ads.</p></div>${STORES.map((s, k) => `<span class="tgr-badge-soon"><small>Coming soon${k ? ' to' : ' to the'}</small><b>${s}</b></span>`).join('')}</aside>
+<aside class="tgr-tp-cta tgr-callout"><div class="tgr-t"><h3>Get the full game on Google Play</h3><p>${esc(g.name)} is part of The Games Room app for phones and tablets: free to play, games work offline, one unlock removes the ads.</p></div>${STORE_BADGES}</aside>
 <nav class="tgr-tp-next" aria-label="More games"><a class="tgr-pn tgr-pn-prev" href="../${prev.id}/" rel="prev"><small>Previous</small>${esc(prev.name)}</a><a class="tgr-pn tgr-pn-all" href="../games/">All games</a><a class="tgr-pn tgr-pn-next" href="../${next.id}/" rel="next"><small>Next</small>${esc(next.name)}</a></nav>
 </article>`;
   return page({ depth: 1, path: g.id + '/', title, description, body, current: 'game', ld, bodyClass: 'tgr-game', scripts: live ? g.preview.scripts.map((s) => s) : [] });

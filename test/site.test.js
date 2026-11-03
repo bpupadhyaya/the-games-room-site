@@ -17,7 +17,9 @@ data.games.forEach((g) => {
   pages.push(g.id + '/index.html');
   assert(sitemap.includes(`<loc>${base}${g.id}/</loc>`), 'sitemap lists ' + g.id);
   assert(index.includes(`href="../${g.id}/"`), 'games index links ' + g.id);
-  assert(!/<a [^>]*href="[^"]*(apps\.apple|play\.google)/i.test(fs.readFileSync(path.join(root, g.id + '/index.html'), 'utf8')), 'no store links yet');
+  const gp = fs.readFileSync(path.join(root, g.id + '/index.html'), 'utf8');
+  assert(!/<a [^>]*href="[^"]*apps\.apple/i.test(gp), 'no App Store link yet (not live on iOS)');
+  assert(!/<a [^>]*href="[^"]*play\.google(?![^"]*id=com\.equalinformation\.thegamesroom\.app")/i.test(gp), 'only our own Play link');
 });
 const problems = [];
 for (const p of pages) {
